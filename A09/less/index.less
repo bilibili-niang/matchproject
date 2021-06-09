@@ -1,0 +1,258 @@
+.section {
+}
+
+.section-one {
+  background: url("../img/background.jpeg") no-repeat center center;
+  background-size: 100% 100%;
+  //position: relative;
+  color: white;
+
+  h2 {
+    position: absolute;
+    top: 0.2rem;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 0.3rem;
+  }
+
+  //控制数据的a标签位置
+  .Data_controler {
+    position: absolute;
+    z-index: 2;
+    height: 3.8rem;
+    width: 0.6rem;
+    //background: red;
+    text-align: center;
+    font-weight: 400;
+    top: 6.25rem;
+    left: 64.5%;
+
+    a {
+      font-size: 15px;
+      color: #fff;
+      text-decoration: none;
+      margin: 0.15rem 0;
+      display: inline-block;
+      width: 45px;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      //border: 1px solid #ffffff;
+      border-radius: 20%;
+      //background-color: rgba(204, 0, 0,0.2);
+      //border-radius: 10%;
+      user-select: none;
+    }
+
+  }
+
+  .outer {
+    background: url("../img/chart-wrapper.png") no-repeat;
+    background-size: 100% 100%;
+    width: 16rem;
+    height: 6rem;
+    position: absolute;
+    top: 6rem;
+    left: 0.3rem;
+    display: inline-block;
+
+    //c题图
+    .one_c {
+      //z-index: 2;
+      display: inline-block;
+      position: absolute;
+      width: 16.5rem;
+      height: 5.5rem;
+      //top: 6rem;
+      left: -0.5rem;
+      //background: rgba(255, 255, 255, 0.2);
+      //border-color: rgba(255, 255, 255, 1);
+      border-style: solid;
+      border-width: 26px 27px 27px;
+      border-image: url("../img/chart-wrapper.png") 100% 100% 100% 100% repeat;
+    }
+  }
+
+  //d题目
+  .one_d {
+    display: inline-block;
+    position: absolute;
+    //border: 1px solid #999999;
+    //background: rgba(255, 255, 255, 0.3);
+    right: 0.3rem;
+    top: 6.25rem;
+    width: 7rem;
+    height: 5.6rem;
+  }
+
+  //a题图
+  .one_a {
+    display: inline-block;
+    position: absolute;
+    width: 11rem;
+    height: 5rem;
+    top: 0.7rem;
+    right: 0.3rem;
+    //background: rgba(255,255,255,0.5);
+  }
+
+  //  第一页左上角的扩展图
+  .one_kuozhan {
+    display: inline-block;
+    position: absolute;
+    width: 12rem;
+    height: 5rem;
+    top: 0.7rem;
+    left: 0.3rem;
+    //background: rgba(255, 255, 255, 0.5);
+  }
+
+  //扩展图上的icon
+  .one_kuohzhan_icon {
+    display: inline-block;
+    list-style: none;
+    //position: absolute;
+    //background: rgba(255, 255, 255, 0.5);
+    font-size: 0.25rem;
+    width: 8rem;
+    height: 5rem;
+    z-index: 3;
+
+    li {
+      position: absolute;
+      display: inline-block;
+      width: 1rem;
+      height: 0.5rem;
+    }
+
+    li:nth-child(1) {
+      left: 1.7rem;
+      top: 1.5rem;
+    }
+
+    li:nth-child(2) {
+      left: 3rem;
+      top: 3rem;
+    }
+
+    li:nth-child(3) {
+      left: 4.1rem;
+      top: 4rem;
+    }
+
+    li:nth-child(4) {
+      left: 5.3rem;
+      top: 4.1rem;
+    }
+
+    li:nth-child(5) {
+      left: 6.5rem;
+      top: 4.2rem;
+    }
+
+    li:nth-child(6) {
+      left: 7.7rem;
+      top: 4.4rem;
+    }
+
+    li:nth-child(7) {
+      left: 9rem;
+      top: 4.5rem;
+    }
+
+    li:nth-child(8) {
+      left: 10rem;
+      top: 4.6rem;
+    }
+
+  }
+}
+
+/*第二页:*/
+
+.section-two {
+  background: url("../img/background2.png") no-repeat center center;
+  background-size: 100% 100%;
+  position: relative;
+
+  //e题目
+  .two_e {
+    position: absolute;
+    display: inline-block;
+    width: 13rem;
+    height: 5.5rem;
+    left: 0.5rem;
+    top: 0.5rem;
+    //background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-top-right-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
+  }
+
+  //g题目
+  .two_g {
+    display: inline-block;
+    position: absolute;
+    width: 9.5rem;
+    height: 11rem;
+    top: 0.5rem;
+    right: 0.5rem;
+    //background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-top-right-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
+  }
+
+  //b题目
+  .two_b {
+    display: inline-block;
+    position: absolute;
+    width: 13rem;
+    height: 5.5rem;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    //background: rgba(255, 255, 255, 0.5);
+    //border: 1px solid rgba(255,255,255,0.6);
+    border-top-right-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
+  }
+
+
+}
+
+//第三页
+.section-three {
+  position: relative;
+
+  .background {
+    display: inline-block;
+    position: absolute;
+    background: url("../img/background2.png") no-repeat center center;
+    background-size: 100% 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    //下面是让背景图旋转的代码
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  }
+
+
+  .three_topology {
+    display: inline-block;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    width: 12rem;
+    height: 11rem;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: white;
+  }
+
+
+}
