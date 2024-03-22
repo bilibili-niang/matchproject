@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>票价折扣</title>
+    <style>
+        .borderStyle {background: linear-gradient(to left, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat;background-size: 4px 20px, 20px 4px, 4px 20px, 20px 4px;border: 1px solid #073F97;position: relative;}body {display: flex;flex-direction: column;overflow: hidden;background: url('../images/bg.jpg') no-repeat;background-size: cover;}body .discount {display: flex;height: 100vh;flex-direction: column;}body .discount .oneRow {padding-left: 10px;padding-right: 10px;display: flex;flex-direction: row;height: 50%;}body .discount .oneRow .lines {display: flex;height: 480px;width: 960px;margin-right: 10px;background: rgba(255, 255, 255, 0.2);border-radius: 0;background: linear-gradient(to left, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat;background-size: 4px 20px, 20px 4px, 4px 20px, 20px 4px;border: 1px solid #073F97;position: relative;}body .discount .oneRow .lines #lines {display: flex;width: 100%;height: 100%;padding: 10px;}body .discount .oneRow .gradientLine {display: flex;height: 480px;width: 960px;background: rgba(255, 255, 255, 0.2);border-radius: 0;background: linear-gradient(to left, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat;background-size: 4px 20px, 20px 4px, 4px 20px, 20px 4px;border: 1px solid #073F97;position: relative;}body .discount .oneRow .gradientLine #gradientLine {display: flex;width: 100%;height: 100%;padding: 10px;}body .discount .twoRow {display: flex;flex-direction: row;height: 50%;justify-content: center;align-items: flex-start;width: 100%;color: white;font-size: 2.5rem;}body .discount .twoRow .module-border-wrap {border-radius: 0;margin: 10px;box-sizing: border-box;display: flex;width: 32%;flex-direction: column;background: rgba(255, 255, 255, 0.2);height: 100%;overflow: hidden;background: linear-gradient(to left, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat;background-size: 4px 20px, 20px 4px, 4px 20px, 20px 4px;border: 1px solid #073F97;position: relative;}body .discount .twoRow .module-border-wrap h5 {padding-left: 10px;margin-bottom: 0;}body .discount .twoRow .module-border-wrap .module {border-radius: 0;color: white;font-size: 1.45rem;height: 90%;width: 100%;display: flex;flex-direction: column;justify-content: space-around;flex-wrap: wrap;overflow-Y: hidden;align-items: baseline;}body .discount .twoRow .module-border-wrap .module .card {margin-right: 20px;height: 8rem;display: flex;width: 17rem;background: rgba(255, 255, 255, 0.2);position: relative;user-select: none;}body .discount .twoRow .module-border-wrap .module .card:hover {margin-top: 0;box-shadow: 0 0 20px 2px #918f8f;transition: all 0.5s;}body .discount .twoRow .module-border-wrap .module .card img {height: 100%;border-radius: 0;}body .discount .twoRow .module-border-wrap .module .card .card-body {padding: 0.5rem;position: absolute;bottom: 0;left: 0;border-radius: 0;background: #ffffff;width: 100%;}body .discount .twoRow .module-border-wrap .module .card .card-body .card-title {font-size: 0.9rem;color: #222;margin-bottom: 0;}body .discount .twoRow .module-border-wrap .module .card .card-body .card-title a {color: #0c0000;text-decoration: underline;}body .discount .twoRow .module-border-wrap .module .card .card-body .card-text {white-space: nowrap;font-size: 0.7rem;color: black;width: 100%;overflow: hidden;text-overflow: ellipsis;}body .discount .twoRow .module-border-wrap .module::-webkit-scrollbar {width: 10px;height: 6px;}body .discount .twoRow .module-border-wrap .module::-webkit-scrollbar-thumb {border-radius: 10px;background-color: #02adf7;background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);}body .discount .twoRow .module-border-wrap .module::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);background: #1b5aa9;}body .discount .twoRow .pie {height: 500px;flex: 1;background: rgba(255, 255, 255, 0.2);border-radius: 0;margin: 10px;background: linear-gradient(to left, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat;background-size: 4px 20px, 20px 4px, 4px 20px, 20px 4px;border: 1px solid #073F97;position: relative;}body .discount .twoRow .pie .title {position: absolute;top: 10px;left: 50%;transform: translateX(-50%);font-size: 1.2rem;}body .discount .twoRow .pie #pie {display: flex;width: 100%;height: 100%;padding: 10px;}
+    </style>
+</head>
+<body>
+<div class="container">
+    {{include './common/indexHeader.html'}}
+</div>
+
+<div class="discount">
+    <div class="oneRow">
+        <div class="lines">
+            <div id="lines"></div>
+        </div>
+        <div class="gradientLine">
+            <div id="gradientLine"></div>
+        </div>
+    </div>
+    <div class="twoRow">
+        <div class="module-border-wrap">
+            <h5>政策专题</h5>
+            <div class="module">
+                <div class="card" style="width: 18rem;">
+                    <img src="images/discount/R5.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="http://www.gov.cn/zhengce/content/2022-01/20/content_5669468.htm">
+                                “十四五”旅游业发展规划的通知
+                            </a>
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="images/discount/R3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="http://www.gov.cn/zhuanti/2021qglh/index.htm">
+                                2021年十三五会议规划
+                            </a>
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="images/discount/R2.jpg" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="http://www.gov.cn/yaowen/2023-04/02/content_5749794.htm">
+                                春游活力
+                            </a>
+                        </h5>
+                        <!--                        <p class="card-text">旅游市场持续回暖 激发消费新活力_要闻视频_中国政府网 (www.gov.cn)</p>-->
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="images/discount/R4.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="http://www.gov.cn/xinwen/2023-03/25/content_5748293.htm">
+                                2023浙江文化和旅游
+                            </a>
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="images/discount/R1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="http://www.gov.cn/xinwen/2023-03/28/content_5748869.htm">
+                                中国西班牙文化和旅游年
+                            </a>
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="images/discount/R6.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><a
+                                href="http://www.gov.cn/zhuanti/2021qglh/index.htm">美好中国，幸福旅程</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--最后一图-->
+        <div class="pie">
+            <div class="title">各旅游主题平均票价下降比</div>
+            <div id="pie"></div>
+        </div>
+    </div>
+</div>
+</body>
+<link rel="stylesheet" href="echarts-wordcloud/dist/echarts-wordcloud.min.js">
+{{include './common/common.html'}}
+<script src="js/discount.js"></script>
+</html>

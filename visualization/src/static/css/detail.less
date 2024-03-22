@@ -1,0 +1,208 @@
+@bac: rgba(255, 255, 255, 0.2);
+@radius: 0;
+.borderStyle {
+  background: linear-gradient(to left, #2CD5FF, #2CD5FF) left top no-repeat,
+  linear-gradient(to bottom, #2CD5FF, #2CD5FF) left top no-repeat,
+  linear-gradient(to left, #2CD5FF, #2CD5FF) right top no-repeat,
+  linear-gradient(to bottom, #2CD5FF, #2CD5FF) right top no-repeat,
+  linear-gradient(to left, #2CD5FF, #2CD5FF) left bottom no-repeat,
+  linear-gradient(to bottom, #2CD5FF, #2CD5FF) left bottom no-repeat,
+  linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat,
+  linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat;
+  background-size: 4px 20px, 20px 4px, 4px 20px, 20px 4px;
+  border: 1px solid #073F97;
+  position: relative;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: url('../images/bg.jpg') no-repeat;
+  background-size: cover;
+
+  .detail {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 10px;
+
+    .oneRow {
+      display: flex;
+      flex-direction: row;
+      height: 550px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+
+      .popLim {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 20%;
+        background: @bac;
+        .borderStyle();
+
+        .pop {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          padding: 10px;
+          box-sizing: border-box;
+          align-items: center;
+          flex-wrap: wrap;
+          justify-content: space-between;
+
+          .title {
+            display: flex;
+            width: 100%;
+            color: rgba(255, 255, 255, 0.8);
+          }
+
+          a {
+            margin-top: 0.5rem;
+            margin-right: 0.5rem;
+          }
+
+          &::-webkit-scrollbar { /*滚动条整体样式*/
+            width: 4px; /*高宽分别对应横竖滚动条的尺寸*/
+            height: 4px;
+            scrollbar-arrow-color: red;
+
+          }
+
+          &::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+            border-radius: 5px;
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.2);
+            scrollbar-arrow-color: red;
+          }
+
+          &::-webkit-scrollbar-track { /*滚动条里面轨道*/
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            border-radius: 0;
+            background: rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+
+      .map {
+        display: flex;
+        width: 60%;
+        background: @bac;
+        height: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+        box-sizing: border-box;
+        overflow: auto;
+        .borderStyle();
+
+        &::-webkit-scrollbar { /*滚动条整体样式*/
+          width: 4px; /*高宽分别对应横竖滚动条的尺寸*/
+          height: 4px;
+          scrollbar-arrow-color: red;
+
+        }
+
+        &::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+          border-radius: 5px;
+          -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+          background: rgba(0, 0, 0, 0.2);
+          scrollbar-arrow-color: red;
+        }
+
+        &::-webkit-scrollbar-track { /*滚动条里面轨道*/
+          -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+          border-radius: 0;
+          background: rgba(0, 0, 0, 0.1);
+        }
+
+
+        .list-group {
+          display: flex;
+          width: 100%;
+
+          .title {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+
+            span {
+              color: #9f9fe5;
+            }
+          }
+
+          .list-group-item {
+            border-bottom: 1px solid #ffffff;
+            color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0) !important;
+            position: relative;
+            padding-bottom: 20px;
+
+            a {
+              right: 10px;
+              bottom: 10px;
+              position: absolute;
+            }
+          }
+        }
+      }
+
+      .polar {
+        display: flex;
+        height: 550px;
+        width: 370px;
+        background: @bac;
+        border-radius: @radius;
+        .borderStyle();
+
+        #polar {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+        }
+      }
+    }
+
+    .twoRow {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+      .line {
+        display: flex;
+        height: 419px;
+        width: 1400px;
+        background: @bac;
+        border-radius: @radius;
+        margin-right: 10px;
+        .borderStyle();
+
+        #line {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+        }
+      }
+
+      .pop {
+        display: flex;
+        width: 500px;
+        height: 419px;
+        background: @bac;
+        border-radius: @radius;
+        .borderStyle();
+
+        #pop {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+        }
+      }
+
+    }
+  }
+}

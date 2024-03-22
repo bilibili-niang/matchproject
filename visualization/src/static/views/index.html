@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <style>
+        .borderStyle {
+            background: linear-gradient(to left, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat;
+            background-size: 4px 20px, 20px 4px, 4px 20px, 20px 4px;
+            border: 1px solid #073F97;
+            position: relative;
+        }
+
+        .font {
+            font: bold 1rem "Courier";
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background: url('../images/bg.jpg') no-repeat;
+            background-size: cover;
+        }
+
+        body .container {
+            background: none;
+            display: flex;
+            flex-direction: row;
+        }
+
+        body .container nav {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .weather {
+            z-index: 5;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: auto;
+            height: 2rem;
+            background: rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            font: bold 1rem "Courier";
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .weather span, .weather div {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .mainbox {
+            display: flex;
+            height: 100vh;
+            width: 100%;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .mainbox .bac {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .mainbox .oneRow {
+            display: flex;
+            width: 100%;
+            height: 50%;
+            padding: 10px;
+            justify-content: space-between;
+        }
+
+        .mainbox .oneRow .curveLine {
+            display: flex;
+            min-width: 30%;
+            max-width: 33%;
+            width: 750px;
+            background: linear-gradient(to left, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat;
+            background-size: 4px 20px, 20px 4px, 4px 20px, 20px 4px;
+            border: 1px solid #073F97;
+            position: relative;
+        }
+
+        .mainbox .oneRow .curveLine #curveLine {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+        }
+
+        .mainbox .oneRow .chinaMap {
+            min-width: 30%;
+            max-width: 33%;
+            width: 750px;
+            background: linear-gradient(to left, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat;
+            background-size: 4px 20px, 20px 4px, 4px 20px, 20px 4px;
+            border: 1px solid #073F97;
+            position: relative;
+        }
+
+        .mainbox .oneRow .chinaMap #chinaMap {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+        }
+
+        .mainbox .oneRow .stack {
+            min-width: 30%;
+            max-width: 33%;
+            width: 750px;
+            background: linear-gradient(to left, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat;
+            background-size: 4px 20px, 20px 4px, 4px 20px, 20px 4px;
+            border: 1px solid #073F97;
+            position: relative;
+        }
+
+        .mainbox .oneRow .stack #stack {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+        }
+
+        .mainbox .twoRow {
+            display: flex;
+            width: 100%;
+            height: 45%;
+            padding: 10px;
+            justify-content: space-between;
+        }
+
+        .mainbox .twoRow .Thermal {
+            display: flex;
+            background: rgba(255, 255, 255, 0.2);
+            flex: 1;
+            background: linear-gradient(to left, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat;
+            background-size: 4px 20px, 20px 4px, 4px 20px, 20px 4px;
+            border: 1px solid #073F97;
+            position: relative;
+            margin-right: 10px;
+        }
+
+        .mainbox .twoRow .Thermal #Thermal {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+        }
+
+        .mainbox .twoRow .flower {
+            display: flex;
+            background: rgba(255, 255, 255, 0.2);
+            width: 560px;
+            background: linear-gradient(to left, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) right top no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to bottom, #2CD5FF, #2CD5FF) left bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat, linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat;
+            background-size: 4px 20px, 20px 4px, 4px 20px, 20px 4px;
+            border: 1px solid #073F97;
+            position: relative;
+        }
+
+        .mainbox .twoRow .flower #flower {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="css/common.less" type="text/less">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">
+                <a type="button" class="btn" href="/detail" target="_self" role="button">景区推荐</a></li>
+            <!--<li class="breadcrumb-item"><a type="button" class="btn" href="/recommend" target="_blank" role="button">旅游推荐</a></li>-->
+            <li class="breadcrumb-item">
+                <a type="button" class="btn" href="/discount" target="_self" role="button">票价折扣</a>
+            </li>
+
+            <li class="breadcrumb-item">
+                <a type="button" class="btn" href="/overview" target="_self" role="button">数据总览</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a type="button" class="btn" href="/word" target="_self" role="button">热区词云</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a type="button" class="btn" href="/delicacies" target="_self" role="button">美食打卡</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a type="button" class="btn" href="/about" target="_self" role="button">关于我们</a>
+            </li>
+        </ol>
+    </nav>
+</div>
+<div class="mainbox">
+    <div class="bac"></div>
+    <div class="oneRow">
+        <div class="curveLine">
+            <div id="curveLine"></div>
+        </div>
+        <div class="chinaMap">
+            <div id="chinaMap"></div>
+        </div>
+        <div class="stack">
+            <div id="stack"></div>
+        </div>
+    </div>
+    <div class="twoRow">
+        <!--热力图-->
+        <div class="Thermal">
+            <div id="Thermal"></div>
+        </div>
+        <div class="flower">
+            <div id="flower"></div>
+        </div>
+
+        <div class="weather">
+            <span id="time"></span>
+            <div class="city"></div>
+            /
+            <div class="weathers"></div>
+            /
+            <div class="winddirection"></div>
+            /
+            <div class="temperature"></div>
+            ℃
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    const token = localStorage.getItem('token') || '';
+    if (JSON.stringify(token).length < 3) {
+        const pathname = window.document.location.pathname;
+        if (pathname != '/login') {
+            location.href = '/login'
+        } else {
+        }
+    }
+
+</script>
+<script src="axios/dist/axios.min.js"></script>
+<script src="jquery/dist/jquery.min.js"></script>
+<script src="js/indexDb.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/less.js"></script>
+<script src="js/china.js"></script>
+<script src="js/index.js"></script>
+</html>

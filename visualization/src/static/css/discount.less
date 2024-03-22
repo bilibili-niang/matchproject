@@ -1,0 +1,214 @@
+@bac: rgba(255, 255, 255, 0.2);
+@radius: 0;
+.borderStyle {
+  background: linear-gradient(to left, #2CD5FF, #2CD5FF) left top no-repeat,
+  linear-gradient(to bottom, #2CD5FF, #2CD5FF) left top no-repeat,
+  linear-gradient(to left, #2CD5FF, #2CD5FF) right top no-repeat,
+  linear-gradient(to bottom, #2CD5FF, #2CD5FF) right top no-repeat,
+  linear-gradient(to left, #2CD5FF, #2CD5FF) left bottom no-repeat,
+  linear-gradient(to bottom, #2CD5FF, #2CD5FF) left bottom no-repeat,
+  linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat,
+  linear-gradient(to left, #2CD5FF, #2CD5FF) right bottom no-repeat;
+  background-size: 4px 20px, 20px 4px, 4px 20px, 20px 4px;
+  border: 1px solid #073F97;
+  position: relative;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: url('../images/bg.jpg') no-repeat;
+  background-size: cover;
+
+  .discount {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+
+    .oneRow {
+      padding-left: 10px;
+      padding-right: 10px;
+      display: flex;
+      flex-direction: row;
+      height: 50%;
+
+      .lines {
+        display: flex;
+        height: 480px;
+        width: 960px;
+        margin-right: 10px;
+        background: @bac;
+        border-radius: @radius;
+        .borderStyle();
+
+        #lines {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+        }
+      }
+
+      .gradientLine {
+        display: flex;
+        height: 480px;
+        width: 960px;
+        background: @bac;
+        border-radius: @radius;
+        .borderStyle();
+
+        #gradientLine {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+        }
+      }
+    }
+
+    .twoRow {
+      display: flex;
+      flex-direction: row;
+      height: 50%;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+      color: white;
+      font-size: 2.5rem;
+
+      .module-border-wrap {
+        border-radius: @radius;
+        margin: 10px;
+        box-sizing: border-box;
+        display: flex;
+        width: 32%;
+        flex-direction: column;
+        background: @bac;
+        height: 100%;
+        overflow: hidden;
+        .borderStyle();
+
+        h5 {
+          padding-left: 10px;
+          margin-bottom: 0;
+        }
+
+        .module {
+          border-radius: @radius;
+          color: white;
+          font-size: 1.45rem;
+          height: 90%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          flex-wrap: wrap;
+          overflow-Y: hidden;
+          align-items: baseline;
+
+          .card {
+            margin-right: 20px;
+            height: 8rem;
+            display: flex;
+            width: 17rem;
+            background: @bac;
+            position: relative;
+            user-select: none;
+
+            &:hover {
+              margin-top: 0; /*和hover的margin-top有对比，原无30,现在0，相当于上移了,30px*/
+              box-shadow: 0 0 20px 2px #918f8f; /*盒子阴影*/
+              transition: all 0.5s; /*持续时间*/
+            }
+
+            img {
+              height: 100%;
+              border-radius: @radius;
+            }
+
+            .card-body {
+              padding: 0.5rem;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              border-radius: @radius;
+              background: rgba(255, 255, 255, 1);
+              width: 100%;
+
+              .card-title {
+                font-size: 0.9rem;
+                color: #222;
+                margin-bottom: 0;
+
+                a {
+                  color: #0c0000;
+                  text-decoration: underline;
+                }
+              }
+
+              .card-text {
+                white-space: nowrap;
+                font-size: 0.7rem;
+                color: black;
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+          }
+        }
+
+        //  自定义滚动条:
+        .module::-webkit-scrollbar {
+          /*滚动条整体样式*/
+          width: 10px;
+          /*高宽分别对应横竖滚动条的尺寸*/
+          height: 6px;
+        }
+
+        .module::-webkit-scrollbar-thumb {
+          /*滚动条里面小方块*/
+          border-radius: 10px;
+          background-color: #02adf7;
+          background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+        }
+
+        .module::-webkit-scrollbar-track {
+          /*滚动条里面轨道*/
+          -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+          background: #1b5aa9;
+        }
+      }
+
+      //最后的图表
+      .pie {
+        height: 500px;
+        flex: 1;
+        background: @bac;
+        border-radius: @radius;
+        margin: 10px;
+        .borderStyle();
+        position: relative;
+        .title{
+          position: absolute;
+          top: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 1.2rem;
+          /*color: rgba(236,233,233,0.8);
+          textBorderWidth: 1.5;
+          textBorderType: solid;
+          textBorderColor: rgb(70,206,211);*/
+        }
+
+        #pie {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}

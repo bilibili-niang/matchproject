@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cityDetail</title>
+<!--    <link rel="stylesheet" href="css/cityDetail.less" type="text/less">-->
+    <style>
+        body {overflow: auto !important;}.cardLim {display: flex;flex-direction: row;flex-wrap: wrap;}.cardLim .card {display: flex;width: 45%;margin: 10px;}.cardLim .card img {max-width: 100%;height: 370px;}
+    </style>
+</head>
+<body>
+<div class="container">
+    {{include './common/indexHeader.html'}}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page"> 关于 {{city}} 更多的景点:</li>
+        </ol>
+    </nav>
+    <div class="cardLim">
+        {{each cityData item index}}
+        <div class="card">
+            <img src="{{item.photos}}" class="card-img-top" alt="{{item.dest_name}}">
+            <div class="card-body">
+                <h5 class="card-title">{{item.dest_name}}</h5>
+                <p class="card-text">
+                <p class="sm-title">地点</p>
+                {{item.address}}
+                </p>
+                <p class="card-text">
+                <p class="sm-title">关于</p>
+                {{item.summary_description}}
+                </p>
+                <p class="card-text">
+                <p class="sm-title">路线</p>
+                {{item.navigation_bar}}
+                </p>
+                <a href="/addressDetail?address={{item.dest_name}}" target="_blank" class="btn btn-outline-warning">景区详情</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+</div>
+</body>
+{{include './common/common.html'}}
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>留言</title>
+    <style>
+        body{
+            background: #0c0000;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<canvas id = "myCanvas"></canvas>
+<script>
+    //随机数min到max
+    function getRandomInt(min, max){
+        return min + Math.floor(Math.random() * (max - min));
+    }
+    window.onload = function (argument){
+        let words = ["666", "老铁", "2333", "aaa", "bbbb", "ccccc", "00000", "33333", "默默无闻", "世界你好","赞","陌上人如玉，公子世无双","举杯邀明月，对饮成三人","云想衣裳花想容，春风拂栏露华浓","若非群玉山头见，会向瑶台月下逢","君不见黄河之水天上来","陌然回首，那人却在灯火阑珊处","年年岁岁花相似，岁岁年年人不同"];
+        let allWord = [];
+        let canvas = document.getElementById('myCanvas');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let ctx = canvas.getContext('2d'),
+            canvasW = canvas.width,
+            canvasH = canvas.height;
+        ctx.fillStyle = '#efebeb';
+        function Word(key){
+            this.text = key;
+            this.x = Math.random() * canvasW;//开始位置
+            this.y = Math.random() * canvasH;
+            this.font = getRandomInt(12, 38) + 'px arial';//字体大小
+            this.speed = getRandomInt(1, 6) - Math.random();//移动速度
+        }
+        for(let i = 0; i < words.length; i++){
+            allWord.push(new Word(words[i]));
+        }
+        //更新
+        function update(){
+            for(let i = 0; i < allWord.length; i++){
+                ctx.font = allWord[i].font;
+                ctx.fillText(allWord[i].text, allWord[i].x, allWord[i].y);
+                allWord[i].width = ctx.measureText(allWord[i].text).width;//字体宽度
+                if(allWord[i].x > canvasW){
+                    allWord[i].x = -allWord[i].width;//从头开始
+                    allWord[i].y = Math.random() * canvasH;
+                }else{
+                    allWord[i].x += allWord[i].speed;//均速移动
+                }
+            }
+        }
+        //绘制
+        function draw(){
+            ctx.clearRect(0, 0, canvasW, canvasH);
+            update();
+            window.requestAnimationFrame(draw);
+        }
+        draw();
+    }
+</script>
+
+</body>
+
+</html>

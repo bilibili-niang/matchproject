@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>留言</title>
+    <link rel="stylesheet" href="css/message.less" type="text/less">
+</head>
+<body>
+<canvas id="myCanvas" onclick="showInput()"></canvas>
+
+<div class="input hide">
+    <div class="input-group mb-3">
+        <input type="text" class="word input-group" placeholder="想说点什么..." aria-label="请留言"
+               aria-describedby="basic-addon1">
+    </div>
+    <button type="button" class="btn btn-primary" onclick="submit()">发射</button>
+</div>
+
+
+</body>
+{{include './common/common.html'}}
+<script src="axios/dist/axios.min.js"></script>
+<script>
+    //随机数min到max
+    function getRandomInt(min, max) {
+        return min + Math.floor(Math.random() * (max - min));
+    }
+
+    function draw() {
+
+    }
+
+    window.onload = async function () {
+        const res = (await axios.get('/allMessage')).data.result;
+        let words = res.map(item => {
+            return item.word
+        });
+        let allWord = [];
+        let canvas = document.getElementById('myCanvas');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let ctx = canvas.getContext('2d'),
+            canvasW = canvas.width,
+            canvasH = canvas.height;
+        ctx.fillStyle = '#ffffff';
+
+        function Word(key) {
+            this.text = key;
+            this.x = Math.random() * canvasW;//开始位置
+            this.y = Math.random() * canvasH;
+            this.font = getRandomInt(12, 38) + 'px arial';//字体大小
+            this.speed = getRandomInt(1, 6) - Math.random();//移动速度
+        }
+
+        for (let i = 0; i < words.length; i++) {
+            allWord.push(new Word(words[i]));
+        }
+
+        //更新
+        function update() {
+            for (let i = 0; i < allWord.length; i++) {
+                ctx.font = allWord[i].font;
+                ctx.fillText(allWord[i].text, allWord[i].x, allWord[i].y);
+                allWord[i].width = ctx.measureText(allWord[i].text).width;//字体宽度
+                if (allWord[i].x > canvasW) {
+                    allWord[i].x = -allWord[i].width;//从头开始
+                    allWord[i].y = Math.random() * canvasH;
+                } else {
+                    allWord[i].x += allWord[i].speed;//均速移动
+                }
+            }
+        }
+
+        //绘制
+        function draw() {
+            ctx.clearRect(0, 0, canvasW, canvasH);
+            update();
+            window.requestAnimationFrame(draw);
+        }
+
+        draw();
+    }
+
+    function showInput() {
+        $('.input').toggleClass('hide')
+    }
+
+    async function submit() {
+        console.log('submit')
+        const word = $('.word').val();
+        //if (word.length > 5) {
+            const res = await axios.post('/addMessage', {
+                word
+            })
+                .then(res => {
+                    // 再次获取数据
+                    location.reload();
+                })
+                .catch(e => {
+                    console.log(e)
+                })
+            /*console.log('res')
+            console.log(res)*/
+
+        //} else {
+            //alert('请再多输入些文字(多余5个字)')
+        //}
+
+
+    }
+
+</script>
+</html>

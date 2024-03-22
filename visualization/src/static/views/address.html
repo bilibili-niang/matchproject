@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>更多-{{address}}</title>
+    <link rel="stylesheet" href="css/address.less" type="text/less">
+</head>
+<body>
+<div class="container address">
+    {{include './common/indexHeader.html'}}
+    <br>
+    <h5 class="pageTitle">{{addressRes.dest_name}}</h5>
+    <div class="cardLim">
+        <div class="card">
+            {{if addressRes.photos}}
+            <div class="bac" style="background: url('{{addressRes.photos}}');background-size: cover"></div>
+            {{/if}}
+
+            {{if !addressRes.photos}}
+            <div class="bac nophoto">
+                <div class="bac"
+                     style="background: url('https://img1.qunarzz.com/sight/p0/1506/25/d1744c5359efda879cfef52e0ff72eec.water.jpg');background-size: cover"></div>
+            </div>
+            {{/if}}
+
+            <div class="card-body">
+                <p class="card-text">
+                <p class="sm-title">关于</p>{{addressRes.summary_description}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="detail">
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">
+                <p class="sm-title">地点:</p>
+                {{addressRes.real_city}} > {{addressRes.city}}
+            </li>
+            <li class="list-group-item">
+                <p class="sm-title">评分:</p>
+                {{addressRes.score}}
+            </li>
+            <li class="list-group-item">
+                <p class="sm-title">开放时间:</p>
+                {{addressRes.opening_hours}}
+            </li>
+            <li class="list-group-item">
+                <p class="sm-title">路线</p>
+                {{addressRes.navigation_bar}}
+            </li>
+            {{if addressRes.recommend_playtime}}
+            <li class="list-group-item">
+                <p class="sm-title">大约花费</p>
+                {{addressRes.recommend_playtime}}
+            </li>
+            {{/if}}
+            <li class="list-group-item">
+                <p class="sm-title">排名</p>
+                {{addressRes.ranking}}
+            </li>
+
+            <li class="list-group-item">
+                <p class="sm-title">历年票价</p>
+                2019: {{addressRes.old_1}}￥ |
+                2020: {{addressRes.old_2}}￥ |
+                2021: {{addressRes.old_3}}￥ |
+                2022: {{addressRes.old_4}}￥ |
+            </li>
+        </ul>
+    </div>
+</div>
+
+</body>
+{{include './common/common.html'}}
+</html>

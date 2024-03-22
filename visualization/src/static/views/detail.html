@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>推荐-{{address}}</title>
+    <link rel="stylesheet" href="css/detail.less" type="text/less">
+</head>
+<body>
+<div class="container">
+    {{include './common/indexHeader.html'}}
+</div>
+<div class="detail">
+    <!--第一行图-->
+    <div class="oneRow">
+        <div class="popLim">
+            <!--打卡气泡图-->
+            <div class="pop">
+                <div class="title">还有这些城市:</div>
+                <!--其他城市:-->
+                {{each city item index}}
+                <a href="/detail?city={{item}}" class="btn btn-outline-info">{{item}}</a>
+                {{/each}}
+            </div>
+        </div>
+
+        <!--地球柱状图变形动画-->
+        <div class="map" id="map">
+            <ul class="list-group">
+                <div class="title">您的默认位置: <span>{{address}}</span></div>
+                <!--渲染列表-->
+                {{each data item index}}
+                <li class="list-group-item">
+                    {{item.dest_name}} | 地点:{{item.address}}
+                    <br>
+                    排名:{{item.ranking}}
+                    <br>
+                    <a href="/addressDetail?address={{item.dest_name}}" class="btn btn-outline-warning" target="_blank">景区详情</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <!--极坐标系-->
+        <div class="polar" id="">
+            <div id="polar"></div>
+        </div>
+    </div>
+    <div class="twoRow">
+        <div class="line">
+            <div id="line"></div>
+        </div>
+        <div class="pop" id="">
+            <div id="pop"></div>
+        </div>
+    </div>
+</div>
+</body>
+{{include './common/common.html'}}
+<script src="/axios/dist/axios.min.js"></script>
+<script src="js/detail.js"></script>
+</html>
