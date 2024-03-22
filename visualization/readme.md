@@ -6,7 +6,7 @@
 - 配置mysql数据库,建议使用mysql8.0
   - 连接的数据库名称:`citys`,默认配置文件位于 config/default.js 
   - 创建数据库后,使用schema下的`citysInit.js`运行一下,会自动创建对应的数据表
-  - 然后把准备好的数据导入,文件在devise下,以csv或sql结尾
+  - 然后把准备好的数据导入,文件在`devise`下,以csv或sql结尾
 
 
 

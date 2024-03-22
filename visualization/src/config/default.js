@@ -1,6 +1,6 @@
 module.exports = {
     server: {
-        port: '87'
+        port: '8080'
     },
     database: {
         host: 3306,
