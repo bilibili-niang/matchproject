@@ -1,7 +1,7 @@
 > 项目后端基于nodejs,前端使用jquery,bootstrap,echarts
 
 > 准备
-
+- 注意:建表时，请确保表的字符集为utf8
 - 使用之前请安装nodejs ^14.6
 - 配置mysql数据库,建议使用mysql8.0
   - 连接的数据库名称:`citys`,默认配置文件位于 config/default.js 
@@ -14,8 +14,9 @@
 npm i
 npm run start
 ```
-默认启动地址:`http://localhost/`
-
+默认启动地址:`http://localhost:8080/login`  
+帐号密码都是  
+admin
 
 
 1.创新点，前后端分别怎么作用的
@@ -34,5 +35,3 @@ npm run start
 
 技术上前后端都是js,mysql,练ts都没用上,图表主要用的都是echarts  
 数据库连接用的是sequlize
-
-
